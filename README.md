@@ -1,0 +1,1 @@
+# smitech-site
