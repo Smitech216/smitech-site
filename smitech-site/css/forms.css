@@ -1,0 +1,47 @@
+/* ============================================
+   SMITECH — forms.css (postuler.html + don.html)
+============================================ */
+
+.form-layout{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-top:50px; }
+.form-side h3{ font-size:20px; text-transform:uppercase; margin-bottom:14px; }
+.form-side p{ color:var(--text-mute); font-size:14px; margin-bottom:24px; }
+.form-side ul{ display:flex; flex-direction:column; gap:14px; }
+.form-side li{ font-size:14px; color:var(--text-mute); display:flex; gap:10px; }
+.form-side li::before{ content:"→"; color:var(--lime); }
+
+form.smitech-form{ display:flex; flex-direction:column; gap:20px; }
+.field{ display:flex; flex-direction:column; gap:8px; }
+.field label{ font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--text-mute); }
+.field input, .field select, .field textarea{
+  background:var(--bg-panel); border:1px solid var(--line); border-radius:10px; color:var(--text);
+  padding:13px 16px; font-family:var(--font-body); font-size:14px; transition:border-color .2s ease;
+}
+.field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--lime); outline:none; }
+.field textarea{ resize:vertical; min-height:110px; }
+.field.error input, .field.error textarea, .field.error select{ border-color:var(--sante); }
+.field-error-msg{ font-size:12px; color:var(--sante); font-family:var(--font-mono); display:none; }
+.field.error .field-error-msg{ display:block; }
+
+.form-submit-row{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:10px; }
+.form-confirm{
+  display:none; background:var(--bg-panel-2); border:1px solid var(--lime); border-radius:12px;
+  padding:20px 24px; font-family:var(--font-mono); font-size:13px; color:var(--lime); margin-top:20px;
+}
+.form-confirm.show{ display:block; }
+
+/* ---------- DON page specifics ---------- */
+.amount-row{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
+.amount-btn{
+  background:var(--bg-panel); border:1px solid var(--line); border-radius:10px; padding:14px 22px;
+  font-family:var(--font-mono); font-size:14px; color:var(--text); cursor:pointer; transition:all .2s ease;
+}
+.amount-btn.selected{ border-color:var(--lime); color:var(--lime); background:var(--bg-panel-2); }
+.amount-btn:hover{ border-color:var(--text-mute); }
+
+.don-note{
+  background:var(--bg-panel); border:1px dashed var(--line); border-radius:12px;
+  padding:16px 20px; font-family:var(--font-mono); font-size:12px; color:var(--text-mute); margin-top:20px;
+}
+.don-note code{ color:var(--lime); }
+
+@media (max-width:900px){ .form-layout{ grid-template-columns:1fr; } }

@@ -1,0 +1,8 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- PLACEHOLDER LOGO — remplacez ce fichier par le vrai logo Smitech (même nom: logo.svg, ou changez le chemin dans les <img>) -->
+  <rect width="32" height="32" rx="8" fill="#0d1114"/>
+  <circle cx="16" cy="9" r="3.4" fill="#c8f31d"/>
+  <circle cx="8" cy="21" r="3.4" fill="#b6a4e8"/>
+  <circle cx="24" cy="21" r="3.4" fill="#ed94cf"/>
+  <path d="M16 12.4 L9.6 18.2 M16 12.4 L22.4 18.2" stroke="#5fc9e8" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Équipe — Smitech</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/equipe.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo"><img src="assets/logo.svg" alt="Logo Smitech">SMITECH</a>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="equipe.html">Équipe</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="postuler.html">Postuler</a></li>
+      <li><a href="don.html">Faire un don</a></li>
+    </ul>
+  </nav>
+  <a href="postuler.html" class="nav-cta">Nous rejoindre</a>
+</header>
+
+<main class="wrap">
+  <div class="team-header">
+    <div class="eyebrow">L'Équipe</div>
+    <h1 class="section-title">Les visages derrière l'innovation</h1>
+    <p class="section-lede">2 fondateurs unis pour faire converger le Droit, l'Informatique et la Santé.</p>
+    
+    <!-- Filtres de filières -->
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="informatique">Informatique</button>
+      <button class="filter-btn" data-filter="droit">Droit</button>
+      <button class="filter-btn" data-filter="sante">Santé</button>
+    </div>
+  </div>
+
+  <!-- Grille des membres -->
+  <div class="team-grid">
+    <!-- 1. RAYEN (MR. SMIDA) — PRÉSIDENT -->
+    <div class="member-card" data-filiere="informatique">
+      <div class="avatar-wrapper">
+        <!-- Remplacer 'pseudo-github-rayen' par son vrai pseudo -->
+        <img src="" alt="Avatar Rayen" class="github-avatar" data-github="pseudo-github-rayen">
+        <div class="loading-spinner"></div>
+      </div>
+      <div class="member-info">
+        <span class="member-tag info">Direction / Tech</span>
+        <h3>Mr. Smida</h3>
+        <p class="member-role">Président </p>
+        <p class="member-desc">Pilotage stratégique de l'entreprise, supervision de l'architecture globale et de l'administration des bases de données.</p>
+        <a href="https://github.com/pseudo-github-rayen" target="_blank" class="github-link">
+          <span>Profil GitHub</span> →
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. MATHÉO (MR. LOTAUT) — VICE-PRÉSIDENT -->
+    <div class="member-card" data-filiere="informatique">
+      <div class="avatar-wrapper">
+        <!-- Remplacer 'pseudo-github-matheo' par son vrai pseudo -->
+        <img src="" alt="Avatar Mathéo" class="github-avatar" data-github="pseudo-github-matheo">
+        <div class="loading-spinner"></div>
+      </div>
+      <div class="member-info">
+        <span class="member-tag info">Direction / Tech</span>
+        <h3>Mr. Lotaut</h3>
+        <p class="member-role">Vice-Président </p>
+        <p class="member-desc">Coordination générale des équipes, suivi opérationnel des filières et supervision du déploiement web.</p>
+        <a href="https://github.com/ninja959999" target="_blank" class="github-link">
+          <span>Profil GitHub</span> →
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. IMRAN (MR. SALAUN) — RÉFÉRENT JURIDIQUE -->
+    <div class="member-card" data-filiere="droit">
+      <div class="avatar-wrapper">
+        <!-- Remplacer 'pseudo-github-imran' par son vrai pseudo -->
+        <img src="" alt="Avatar Imran" class="github-avatar" data-github="pseudo-github-imran">
+        <div class="loading-spinner"></div>
+      </div>
+      <div class="member-info">
+        <span class="member-tag droit">Droit</span>
+        <h3>Mr. Salaun</h3>
+        <p class="member-role">Référent Juridique </p>
+        <p class="member-desc">Structuration légale de la startup, choix de la forme sociale et rédaction du pacte d'associés.</p>
+        <a href="https://github.com/pseudo-github-imran" target="_blank" class="github-link">
+          <span>Profil GitHub</span> →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4. PIERRE-LOUIS — RÉFÉRENT SANTÉ -->
+    <div class="member-card" data-filiere="sante">
+      <div class="avatar-wrapper">
+        <!-- Remplacer 'pseudo-github-pierre-louis' par son vrai pseudo -->
+        <img src="" alt="Avatar Pierre-Louis" class="github-avatar" data-github="pseudo-github-pierre-louis">
+        <div class="loading-spinner"></div>
+      </div>
+      <div class="member-info">
+        <span class="member-tag sante">Santé</span>
+        <h3>Collaborateur</h3>
+        <p class="member-role">Référent Santé (Kiné)</p>
+        <p class="member-desc">Spécialisation de la filière médicale, développement du réseau professionnel et intégration du parcours de soins.</p>
+        <a href="https://github.com/pseudo-github-pierre-louis" target="_blank" class="github-link">
+          <span>Profil GitHub</span> →
+        </a>
+      </div>
+    </div>
+
+    <!-- 5. CÔME — RÉDACTEUR / TRADUCTEUR -->
+    <div class="member-card" data-filiere="informatique">
+      <div class="avatar-wrapper">
+        <!-- Remplacer 'pseudo-github-come' par son vrai pseudo -->
+        <img src="" alt="Avatar Côme" class="github-avatar" data-github="pseudo-github-come">
+        <div class="loading-spinner"></div>
+      </div>
+      <div class="member-info">
+        <span class="member-tag info">Contenu / Com</span>
+        <h3>Collaborateur</h3>
+        <p class="member-role">Rédacteur, Traducteur & Copywriter</p>
+        <p class="member-desc">Gestion de contenu, rédaction marketing (copywriting) et traduction multilingue des supports de l'entreprise.</p>
+        <a href="https://github.com/pseudo-github-come" target="_blank" class="github-link">
+          <span>Profil GitHub</span> →
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div>© 2026 Smitech — Informatique, Droit, Santé</div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/github.js"></script>
+</body>
+</html>
