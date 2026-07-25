@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-08-05",
+    "title": "Lancement officiel de SMITECH",
+    "description": "Annonce de la structuration du groupe en six filières et présentation de notre vision d'entreprise.",
+    "time": "14:00",
+    "location": "Siège SMITECH — Tunis",
+    "image": "assets/logo.png"
+  },
+  {
+    "date": "2026-09-12",
+    "title": "Atelier IA et automatisation",
+    "description": "Démonstration de nos solutions IA et panels sur l'automatisation des processus métier.",
+    "time": "10:00",
+    "location": "Campus Tech — Tunis",
+    "image": "assets/logo.png"
+  },
+  {
+    "date": "2026-10-21",
+    "title": "Journée sécurité Cloud & Cyber",
+    "description": "Session pratique sur la protection des infrastructures et l'architecture cloud résiliente.",
+    "time": "09:30",
+    "location": "Centre de conférence SMITECH",
+    "image": "assets/logo.png"
+  }
+]
