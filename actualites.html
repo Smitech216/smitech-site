@@ -32,6 +32,7 @@
     </ul>
   </nav>
   <a href="carrieres.html" class="nav-cta">Postuler</a>
+  <button class="translate-btn" aria-label="Traduire en anglais / Translate to English">EN</button>
   <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
 </header>
 
@@ -46,6 +47,7 @@
   <a href="actualites.html">Actualités</a>
   <a href="contact.html">Contact</a>
   <a href="carrieres.html" class="nav-cta">Postuler</a>
+  <button class="translate-btn" style="margin:.5rem auto 0;" aria-label="Traduire en anglais / Translate to English">EN</button>
 </div>
 
 <main id="main">
@@ -69,7 +71,7 @@
       <div class="news-date" data-i18n="featured-label">À la une</div>
       <h3 style="font-size:24px; margin:14px 0 14px; text-transform:uppercase;" data-i18n="featured-title">Lancement officiel de SMITECH et de ses six filières</h3>
       <p style="color:var(--mute); font-size:15px;" data-i18n="featured-text">SMITECH annonce officiellement sa structuration en six filières complémentaires — Digital, Software, AI, Cloud &amp; Cybersecurity, Labs et Cabinet Juridique — pour accompagner ses clients de la conception à la mise en œuvre de leurs projets technologiques.</p>
-      <a href="about.html" class="btn btn-ghost" style="margin-top:20px;" data-i18n="featured-link">En savoir plus</a>
+      <a href="actualite-lancement.html" class="btn btn-ghost" style="margin-top:20px;" data-i18n="featured-link">En savoir plus</a>
     </div>
   </div>
   
@@ -80,6 +82,11 @@
       <div class="eyebrow" data-i18n="events-title">Événements</div>
       <h2 class="title-lg" style="margin-top:12px;" data-i18n="events-heading">Calendrier des prochains rendez-vous</h2>
       <p class="lede" style="margin-top:14px; max-width:620px;" data-i18n="events-desc">Cliquez sur une date pour afficher le détail complet de l'événement.</p>
+      <div class="calendar-nav">
+        <button type="button" class="calendar-nav-btn" id="calPrev" aria-label="Mois précédent">←</button>
+        <span id="calendarMonthLabel">—</span>
+        <button type="button" class="calendar-nav-btn" id="calNext" aria-label="Mois suivant">→</button>
+      </div>
       <div class="calendar-grid" id="calendarGrid"></div>
     </div>
     <div class="events-panel">
@@ -166,6 +173,9 @@
 </footer>
 <button class="to-top" aria-label="Retour en haut">↑</button>
 <script src="js/main.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/cookies.js"></script>
+<script src="js/events.js"></script>
 
 <!-- SmiBot — assistant virtuel -->
 <div class="chatbot-container">
@@ -195,6 +205,17 @@
     <div class="chatbot-footer">
       <div class="chatbot-suggestions" id="chatSuggestions"></div>
       <div class="chatbot-options-wrapper" id="chatOptions"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Bannière de consentement cookies (voir js/cookies.js + cookies.html) -->
+<div class="cookie-banner" id="cookieBanner" aria-hidden="true">
+  <div class="cookie-banner-inner glass">
+    <p>Ce site utilise des cookies essentiels à son fonctionnement, ainsi que des cookies tiers (traduction) activés uniquement avec votre accord. <a href="cookies.html">En savoir plus</a>.</p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn btn-ghost" id="cookieRefuse">Refuser</button>
+      <button type="button" class="btn btn-primary" id="cookieAccept">Accepter</button>
     </div>
   </div>
 </div>

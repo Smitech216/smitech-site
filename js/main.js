@@ -188,7 +188,6 @@ function setupGoogleTranslateButton() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  setupGoogleTranslateButton();
 
   /* ---- Bannière de consentement cookies : affichée tant qu'aucun choix n'a été fait ---- */
   if (!getCookieConsent()) {
