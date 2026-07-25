@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /merci.html
-
-Sitemap: https://www.smitech.fr/sitemap.xml
