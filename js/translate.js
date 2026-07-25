@@ -1,15 +1,18 @@
 /* ============================================
    SMITECH — translate.js
-   Bouton "EN" dans la navigation : traduit la page du français vers
-   l'anglais via le widget Google Translate, chargé uniquement au clic
-   (cohérent avec cookies.html : "activé après votre acceptation").
-
-   Fonctionnement :
-   - 1er clic  → charge le script Google Translate, initialise le widget
-                 caché, puis force la traduction vers l'anglais.
-   - 2ᵉ clic   → recharge la page (donc revient au français d'origine).
-   Le bouton passe de "EN" à "FR" pour indiquer l'état courant.
+   Menu de langues avec drapeaux, propulsé par Google Translate.
+   La langue choisie est sauvegardée (localStorage) et réappliquée
+   automatiquement sur chaque page du site.
 ============================================ */
+
+const SMITECH_LANGS = [
+  { code: 'fr', label: 'Français', flagImg: 'https://flagcdn.com/24x18/fr.png' },
+  { code: 'en', label: 'English',  flagImg: 'https://flagcdn.com/24x18/gb.png' },
+  { code: 'es', label: 'Español',  flagImg: 'https://flagcdn.com/24x18/es.png' },
+  { code: 'it', label: 'Italiano', flagImg: 'https://flagcdn.com/24x18/it.png' },
+  { code: 'ar', label: 'العربية',  flagImg: 'https://flagcdn.com/24x18/sa.png' },
+  { code: 'ja', label: '日本語',    flagImg: 'https://flagcdn.com/24x18/jp.png' },
+];
 
 document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.translate-btn');
@@ -24,38 +27,95 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(el);
   }
 
-  let translated = false;
+  const STORAGE_KEY = 'smitech_lang';
+  let widgetReady = false;
 
-  function applyEnglish() {
-    const combo = document.querySelector('.goog-te-combo');
-    if (!combo) { setTimeout(applyEnglish, 300); return; } // widget pas encore prêt
-    combo.value = 'en';
-    combo.dispatchEvent(new Event('change'));
-    translated = true;
-    buttons.forEach(b => b.textContent = 'FR');
+  function currentLang() {
+    return localStorage.getItem(STORAGE_KEY) || 'fr';
   }
 
-  function loadWidgetThenTranslate() {
-    if (window.google && window.google.translate) { applyEnglish(); return; }
+  function applyLang(code) {
+    if (code === 'fr') { // retour à la langue d'origine = pas de traduction Google
+      localStorage.setItem(STORAGE_KEY, 'fr');
+      location.reload();
+      return;
+    }
+    localStorage.setItem(STORAGE_KEY, code);
+    setCombo(code);
+    refreshButtonLabel();
+  }
+
+  function setCombo(code) {
+    const combo = document.querySelector('.goog-te-combo');
+    if (!combo) { setTimeout(() => setCombo(code), 300); return; }
+    combo.value = code;
+    combo.dispatchEvent(new Event('change'));
+  }
+
+  function loadWidget(callback) {
+    if (window.google && window.google.translate) { widgetReady = true; callback(); return; }
     window.googleTranslateElementInit = function () {
       new google.translate.TranslateElement(
-        { pageLanguage: 'fr', includedLanguages: 'en', autoDisplay: false },
+        { pageLanguage: 'fr', includedLanguages: SMITECH_LANGS.map(l => l.code).filter(c => c !== 'fr').join(','), autoDisplay: false },
         'google_translate_element'
       );
-      setTimeout(applyEnglish, 700);
+      widgetReady = true;
+      setTimeout(callback, 700);
     };
     const script = document.createElement('script');
     script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     document.body.appendChild(script);
   }
 
+  function buildMenu(anchorBtn) {
+    const existing = document.querySelector('.lang-menu');
+    if (existing) { existing.remove(); return; }
+
+    const menu = document.createElement('div');
+    menu.className = 'lang-menu';
+    SMITECH_LANGS.forEach(lang => {
+      const item = document.createElement('button');
+      item.className = 'lang-menu-item';
+      item.innerHTML = `<img class="lang-flag" src="${lang.flagImg}" alt="${lang.label}"><span>${lang.label}</span>`;
+      if (lang.code === currentLang()) item.classList.add('is-active');
+      item.addEventListener('click', () => {
+        menu.remove();
+        if (lang.code === 'fr') { applyLang('fr'); return; }
+        loadWidget(() => applyLang(lang.code));
+      });
+      menu.appendChild(item);
+    });
+    anchorBtn.parentElement.style.position = 'relative';
+    anchorBtn.parentElement.appendChild(menu);
+
+    // fermer si clic ailleurs
+    setTimeout(() => {
+      document.addEventListener('click', function closeMenu(e) {
+        if (!menu.contains(e.target) && e.target !== anchorBtn) {
+          menu.remove();
+          document.removeEventListener('click', closeMenu);
+        }
+      });
+    }, 0);
+  }
+
+  // affiche le drapeau de la langue courante sur le bouton
+  function refreshButtonLabel() {
+    const lang = SMITECH_LANGS.find(l => l.code === currentLang()) || SMITECH_LANGS[0];
+    buttons.forEach(b => b.innerHTML = `<img class="lang-flag" src="${lang.flagImg}" alt="${lang.code}">`);
+  }
+  refreshButtonLabel();
+
   buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (translated) {
-        location.reload(); // le plus fiable pour revenir au français d'origine
-        return;
-      }
-      loadWidgetThenTranslate();
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      buildMenu(btn);
     });
   });
+
+  // au chargement de la page, réapplique automatiquement la langue sauvegardée (sauf FR)
+  const saved = currentLang();
+  if (saved !== 'fr') {
+    loadWidget(() => setCombo(saved));
+  }
 });

@@ -738,3 +738,29 @@ document.addEventListener('DOMContentLoaded', () => {
   layout();
   startAuto();
 });
+
+/* ---- Anneaux de progression animés (stats graphiques accueil) ---- */
+document.addEventListener('DOMContentLoaded', () => {
+  const rings = document.querySelectorAll('.ring-progress');
+  if (!rings.length) return;
+
+  const circumference = 2 * Math.PI * 52; // rayon = 52 (cf. SVG)
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const ring = entry.target;
+        const percent = parseFloat(ring.getAttribute('data-percent')) || 0;
+        const offset = circumference - (percent / 100) * circumference;
+        ring.style.strokeDashoffset = offset;
+        observer.unobserve(ring);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  rings.forEach(ring => {
+    ring.style.strokeDasharray = circumference;
+    ring.style.strokeDashoffset = circumference;
+    observer.observe(ring);
+  });
+});

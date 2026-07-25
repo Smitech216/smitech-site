@@ -48,15 +48,29 @@ document.addEventListener('DOMContentLoaded', () => {
       card.href = repo.html_url;
       card.target = '_blank';
       card.rel = 'noopener';
-     card.innerHTML = `
-        <div class="hacc-bg" style="background-image:url('assets/projets/${repo.name}.jpg'), url('assets/projets/default.jpg')"></div>
+      const imgTag = document.querySelector(`#repoImages [data-repo="${repo.name}"]`);
+      const bgImage = imgTag ? imgTag.getAttribute('data-image') : 'assets/projets/default.jpg';
+      card.innerHTML = `
+        <div class="hacc-bg" style="background-image:url('${bgImage}')"></div>
         <h3 class="hacc-title-vertical">${repo.name}</h3>
         <div class="hacc-content">
           <h3 class="hacc-title">${repo.name}</h3>
           <p class="hacc-desc">${repo.description ?? 'Pas de description.'}</p>
-          <span class="hacc-lang">${repo.language ?? '—'}</span>
+          <div class="hacc-lang-list">${repo.language ?? '—'}</div>
         </div>`;
       grid.appendChild(card);
+
+      if (repo.languages_url) {
+        fetch(repo.languages_url)
+          .then(r => r.json())
+          .then(langs => {
+            const names = Object.keys(langs);
+            if (names.length === 0) return;
+            const listEl = card.querySelector('.hacc-lang-list');
+            listEl.innerHTML = names.map(l => `<span class="hacc-lang">${l}</span>`).join('');
+          })
+          .catch(() => {});
+      }
     });
   }
 
