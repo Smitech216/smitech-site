@@ -48,12 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
       card.href = repo.html_url;
       card.target = '_blank';
       card.rel = 'noopener';
-      card.innerHTML = `
-        <h4>${repo.name}</h4>
-        <p>${repo.description ?? 'Pas de description.'}</p>
-        <div class="repo-meta">
-          <span>${repo.language ?? '—'}</span>
-          <span>Voir sur GitHub →</span>
+     card.innerHTML = `
+        <div class="hacc-bg" style="background-image:url('assets/projets/${repo.name}.jpg'), url('assets/projets/default.jpg')"></div>
+        <h3 class="hacc-title-vertical">${repo.name}</h3>
+        <div class="hacc-content">
+          <h3 class="hacc-title">${repo.name}</h3>
+          <p class="hacc-desc">${repo.description ?? 'Pas de description.'}</p>
+          <span class="hacc-lang">${repo.language ?? '—'}</span>
         </div>`;
       grid.appendChild(card);
     });

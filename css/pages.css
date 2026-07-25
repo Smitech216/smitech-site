@@ -297,27 +297,97 @@
 .member-desc{color:var(--mute); font-size:13.5px; margin-bottom:16px;}
 .github-link{font-family:var(--font-mono); font-size:12px; text-transform:uppercase; display:inline-flex; gap:8px;}
 
-/* ================= REPO CARDS (Projets) ================= */
-.repo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:50px;}
-@media (max-width:1000px){ .repo-grid{grid-template-columns:repeat(2,1fr);} }
-@media (max-width:640px){ .repo-grid{grid-template-columns:1fr;} }
-.repo-card{padding:26px; display:flex; flex-direction:column; gap:14px; min-height:190px;}
-.repo-card h4{font-size:16px; text-transform:none;}
-.repo-card p{color:var(--mute); font-size:13.5px; flex-grow:1;}
-.repo-meta{display:flex; gap:16px; font-family:var(--font-mono); font-size:11.5px; color:var(--mute);}
 
-.repo-state{color:var(--mute); font-size:14px; padding:30px 0; font-family:var(--font-mono);}
-.repo-state code{color:var(--cyan);}
-.member-card.hidden{display:none;}
-
-.filter-container{display:flex; gap:10px; flex-wrap:wrap; margin-top:26px;}
-.filter-btn{
-  font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.06em;
-  border:1px solid var(--steel-2); background:transparent; color:var(--mute); padding:9px 16px; border-radius:100px;
-  cursor:pointer; transition:all .2s ease;
+/* ---------- Accordéon horizontal "Nos projets" ---------- */
+.repo-grid{
+  display:flex;
+  height:420px;
+  gap:0;
 }
-.filter-btn:hover{border-color:var(--cyan); color:var(--white);}
-.filter-btn.active{background:var(--grad-signal); color:var(--ink); border-color:transparent; font-weight:600;}
+.repo-card{
+  position:relative;
+  flex:1;
+  overflow:hidden;
+  border-radius:var(--radius-m);
+  margin:0 4px;
+  background:var(--panel);
+  border:1px solid var(--steel);
+  display:flex;
+  align-items:flex-end;
+  cursor:pointer;
+  transition:flex .5s cubic-bezier(.25,1,.5,1), border-color .5s ease;
+  align-items:flex-end;
+}
+.repo-card:first-child{ margin-left:0; }
+.repo-card:last-child{ margin-right:0; }
+.repo-card:hover{ flex:3; border-color:var(--cyan); }
+
+.hacc-title-vertical{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%) rotate(-90deg);
+  white-space:nowrap;
+  font-family:var(--font-display);
+  font-size:1.05rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  opacity:1;
+  transition:opacity .4s ease;
+}
+.repo-card:hover .hacc-title-vertical{ opacity:0; }
+
+.hacc-content{
+  padding:1.5rem;
+  width:100%;
+  z-index:2;
+  opacity:0;
+  transform:translateY(20px);
+  transition:all .5s ease;
+  transition-delay:.1s;
+  background:linear-gradient(to top, rgba(0,0,0,.85), transparent);
+}
+.repo-card:hover .hacc-content{ opacity:1; transform:translateY(0); }
+
+.hacc-title{
+  font-family:var(--font-display);
+  font-size:1.2rem;
+  margin-bottom:.5rem;
+}
+.hacc-desc{
+  font-size:.85rem;
+  line-height:1.5;
+  color:var(--mute);
+  margin-bottom:.8rem;
+}
+.hacc-lang{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  padding:4px 10px;
+  background:rgba(255,255,255,.1);
+  border-radius:20px;
+  color:var(--cyan);
+}
+
+@media (max-width:700px){
+  .repo-grid{ flex-direction:column; height:auto; }
+  .repo-card{ height:80px; margin:4px 0; align-items:center; justify-content:center; }
+  .repo-card:hover{ flex:1; height:240px; }
+  .hacc-title-vertical{ transform:translate(-50%,-50%) rotate(0); }
+}
+
+.repo-card{ align-items:flex-end; }
+
+.hacc-bg{
+  position:absolute; inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:.35;
+  transition:opacity .5s ease, transform .5s ease;
+  transform:scale(1.1);
+  z-index:0;
+}
+.repo-card:hover .hacc-bg{ opacity:.55; transform:scale(1); }
 
 /* ================= MERCI (thank you) ================= */
 .merci-hero{min-height:80vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:160px 20px 80px;}
@@ -796,3 +866,203 @@
 .space-chip{padding:1.375rem 1rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:.625rem;}
 .space-chip .ic{width:36px; height:36px; stroke:var(--cyan);}
 .space-chip span{font-size:.78125rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.04em; color:var(--white);}
+
+/* ---------- Carrousel 3D "Nos services" ---------- */
+.carousel3d-wrap{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  justify-content:center;
+}
+.carousel3d{
+  position:relative;
+  width:100%;
+  max-width:900px;
+  height:460px;
+  perspective:1400px;
+  overflow:visible;
+}
+.carousel3d-track{
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.c3d-card{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:280px;
+  height:auto;
+margin:-150px 0 0 -140px;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+  transition:transform .6s cubic-bezier(.22,.9,.32,1), opacity .6s ease, filter .6s ease;
+  cursor:pointer;
+}
+
+.c3d-card-face{
+  width:100%;
+  height:100%;
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  overflow:hidden;
+  background:var(--surface);
+  border:1px solid var(--steel);
+  border-radius:var(--radius-m);
+  backdrop-filter:blur(10px);
+  transition:border-color .4s ease, background .4s ease;
+}
+.c3d-card .ic{
+  width:44px; height:44px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:var(--radius-s);
+  background:var(--grad-signal);
+  flex:0 0 auto;
+}
+.c3d-card .ic svg{width:22px; height:22px; stroke:var(--ink);}
+.c3d-card h3{
+  font-family:var(--font-display);
+  font-size:1.1rem;
+  line-height:1.3;
+}
+.c3d-detail{
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .4s ease .1s, transform .4s ease .1s;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.c3d-detail p{
+  color:var(--mute);
+  font-size:.9rem;
+  line-height:1.5;
+}
+
+/* état actif = carte centrale, face caméra, détail visible */
+.c3d-card.is-active{
+  z-index:5;
+}
+.c3d-card.is-active .c3d-card-face{
+  border-color:var(--cyan);
+  background:var(--surface-strong);
+}
+.c3d-card.is-active .c3d-detail{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* cartes non actives : légèrement estompées */
+.c3d-card:not(.is-active) .c3d-card-face{
+  opacity:.55;
+}
+.c3d-card:not(.is-active):hover .c3d-card-face{
+  opacity:.85;
+}
+
+.c3d-arrow{
+  flex:0 0 auto;
+  width:44px; height:44px;
+  border-radius:50%;
+  border:1px solid var(--steel);
+  background:var(--surface);
+  color:var(--white);
+  font-size:1.4rem;
+  line-height:1;
+  cursor:pointer;
+  transition:border-color .3s ease, color .3s ease;
+}
+.c3d-arrow:hover{ border-color:var(--cyan); color:var(--cyan); }
+
+.c3d-dots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:50px;
+}
+.c3d-dot{
+  width:9px; height:9px;
+  border-radius:50%;
+  background:var(--steel);
+  border:none;
+  cursor:pointer;
+  transition:background .3s ease, transform .3s ease;
+}
+.c3d-dot.is-active{
+  background:var(--cyan);
+  transform:scale(1.3);
+}
+
+@media (max-width: 720px){
+  .carousel3d-wrap{ gap:8px; }
+  .carousel3d{ height:380px; }
+  .c3d-card{ width:220px; margin:-160px 0 0 -110px; }
+}
+
+/* ---------- Cartes "Nos projets" — effet hover à la itechate ---------- */
+.repo-card{
+  position:relative;
+  display:block;
+  min-height:180px;
+  padding:24px;
+  overflow:hidden;
+  border-radius:var(--radius-m);
+  transition:transform .3s ease, border-color .3s ease;
+}
+.repo-card:hover,
+.repo-card:focus-visible{
+  transform:translateY(-4px);
+  border-color:var(--cyan);
+}
+.repo-card-top{
+  position:relative;
+  z-index:1;
+  transition:opacity .3s ease;
+}
+.repo-card-top h4{
+  font-family:var(--font-display);
+  font-size:1.15rem;
+  margin-bottom:8px;
+}
+.repo-lang{
+  font-family:var(--font-mono);
+  font-size:.8rem;
+  color:var(--cyan);
+}
+.repo-card-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:14px;
+  padding:24px;
+  background:linear-gradient(160deg, rgba(20,38,77,.96), rgba(9,12,17,.98));
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity .3s ease, transform .3s ease;
+  pointer-events:none;
+}
+.repo-card:hover .repo-card-overlay,
+.repo-card:focus-visible .repo-card-overlay{
+  opacity:1;
+  transform:translateY(0);
+}
+.repo-card:hover .repo-card-top,
+.repo-card:focus-visible .repo-card-top{
+  opacity:0;
+}
+.repo-card-overlay p{
+  color:var(--white);
+  font-size:.92rem;
+  line-height:1.5;
+}
+.repo-card-cta{
+  font-family:var(--font-mono);
+  font-size:.85rem;
+  color:var(--cyan);
+  font-weight:600;
+}

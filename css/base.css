@@ -71,7 +71,7 @@ h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; letter-spacing:-0.
 }
 .skip-link:focus{left:16px; top:16px;}
 
-.wrap{max-width:var(--container); margin:0 auto; padding:0 6vw;}
+.wrap{max-width:var(--container); margin:0 auto; padding:0 6px;}
 .section{padding:120px 0;}
 .section-tight{padding:80px 0;}
 

@@ -664,3 +664,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/* ---- Carrousel 3D "Nos services" ---- */
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.getElementById('serviceTrack');
+  const dotsWrap = document.getElementById('serviceDots');
+  if (!track) return;
+
+  const cards = Array.from(track.querySelectorAll('.c3d-card'));
+  const total = cards.length;
+  const radius = 380; // distance des cartes par rapport au centre — ajustable
+  let activeIndex = 0;
+  let autoTimer = null;
+
+  // positionne chaque carte sur le cercle 3D
+  function layout() {
+    cards.forEach((card, i) => {
+      const angle = (360 / total) * (i - activeIndex);
+      card.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+      card.classList.toggle('is-active', i === activeIndex);
+    });
+    updateDots();
+  }
+
+  // construit les points de navigation
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'c3d-dot';
+    dot.setAttribute('aria-label', `Aller au service ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i, true));
+    dotsWrap.appendChild(dot);
+  });
+  function updateDots() {
+    dotsWrap.querySelectorAll('.c3d-dot').forEach((d, i) => {
+      d.classList.toggle('is-active', i === activeIndex);
+    });
+  }
+
+  function goTo(index, userTriggered) {
+    activeIndex = (index + total) % total;
+    layout();
+    if (userTriggered) restartAuto();
+  }
+
+  function next(userTriggered) { goTo(activeIndex + 1, userTriggered); }
+  function prev(userTriggered) { goTo(activeIndex - 1, userTriggered); }
+
+  // clic sur une carte : si elle n'est pas active, on la centre ; si déjà active, ne rien faire (le lien "Découvrir" à l'intérieur reste cliquable)
+  cards.forEach((card, i) => {
+    card.addEventListener('click', (e) => {
+      if (i !== activeIndex) {
+        e.preventDefault();
+        goTo(i, true);
+      }
+    });
+  });
+
+  document.querySelector('.c3d-prev').addEventListener('click', () => prev(true));
+  document.querySelector('.c3d-next').addEventListener('click', () => next(true));
+
+  // auto-rotation toutes les 5s, en pause au survol
+  const wrap = document.querySelector('.carousel3d-wrap');
+  function startAuto() {
+    autoTimer = setInterval(() => next(false), 5000);
+  }
+  function restartAuto() {
+    clearInterval(autoTimer);
+    startAuto();
+  }
+  wrap.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  wrap.addEventListener('mouseleave', () => startAuto());
+
+  layout();
+  startAuto();
+});
