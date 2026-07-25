@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actualités — SMITECH</title>
+<meta name="description" content="Les dernières actualités du groupe SMITECH : lancements de filières, partenariats et vie de l'entreprise.">
+<link rel="canonical" href="actualites.html">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<header class="site-header">
+  <a href="index.html" class="logo"><img src="assets/logo.png" alt="Logo SMITECH">SMITECH</a>
+  <nav class="main-nav" aria-label="Navigation principale">
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="filieres.html">Nos filières</a></li>
+      <li><a href="services.html">Nos services</a></li>
+      <li><a href="projets.html">Nos projets</a></li>
+      <li><a href="siege.html">Notre siège</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="actualites.html">Actualités</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="carrieres.html" class="nav-cta">Postuler</a>
+  <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mobile-nav">
+  <a href="index.html">Accueil</a>
+  <a href="about.html">À propos</a>
+  <a href="filieres.html">Nos filières</a>
+  <a href="services.html">Nos services</a>
+  <a href="projets.html">Nos projets</a>
+  <a href="siege.html">Notre siège</a>
+  <a href="carrieres.html">Carrières</a>
+  <a href="actualites.html">Actualités</a>
+  <a href="contact.html">Contact</a>
+  <a href="carrieres.html" class="nav-cta">Postuler</a>
+</div>
+
+<main id="main">
+
+  
+<section class="page-hero">
+  <div class="circuit-field" data-density="7"></div>
+  <div class="wrap">
+    <div class="eyebrow reveal" data-i18n="page-title">Actualités</div>
+    <h1 class="title-xl reveal"><span data-i18n="hero-title">Les dernières nouvelles</span> <span class="grad-text" data-i18n="hero-title-accent">de SMITECH</span></h1>
+    <p class="lede reveal" data-i18n="hero-sub">Lancements de filières, projets marquants et vie de l'entreprise — suivez l'actualité du groupe.</p>
+  </div>
+</section>
+
+  <div class="news-featured glass reveal">
+    <div class="nf-visual">
+      <div class="circuit-field" data-density="5"></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2"/><circle cx="4" cy="6" r="1.6"/><circle cx="20" cy="6" r="1.6"/><circle cx="4" cy="18" r="1.6"/><circle cx="20" cy="18" r="1.6"/><path d="M10.2 10.6L5.3 7M13.8 10.6L18.7 7M10.2 13.4L5.3 17M13.8 13.4L18.7 17"/></svg>
+    </div>
+    <div class="nf-body">
+      <div class="news-date" data-i18n="featured-label">À la une</div>
+      <h3 style="font-size:24px; margin:14px 0 14px; text-transform:uppercase;" data-i18n="featured-title">Lancement officiel de SMITECH et de ses six filières</h3>
+      <p style="color:var(--mute); font-size:15px;" data-i18n="featured-text">SMITECH annonce officiellement sa structuration en six filières complémentaires — Digital, Software, AI, Cloud &amp; Cybersecurity, Labs et Cabinet Juridique — pour accompagner ses clients de la conception à la mise en œuvre de leurs projets technologiques.</p>
+      <a href="about.html" class="btn btn-ghost" style="margin-top:20px;" data-i18n="featured-link">En savoir plus</a>
+    </div>
+  </div>
+  
+
+<section class="section wrap">
+  <div class="events-shell reveal">
+    <div class="events-board events-panel">
+      <div class="eyebrow" data-i18n="events-title">Événements</div>
+      <h2 class="title-lg" style="margin-top:12px;" data-i18n="events-heading">Calendrier des prochains rendez-vous</h2>
+      <p class="lede" style="margin-top:14px; max-width:620px;" data-i18n="events-desc">Cliquez sur une date pour afficher le détail complet de l'événement.</p>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </div>
+    <div class="events-panel">
+      <div class="eyebrow" data-i18n="details-title">Détails</div>
+      <h3 id="eventTitle" data-i18n="event-select">Sélectionnez une date</h3>
+      <div class="event-meta" id="eventMeta"></div>
+      <p id="eventDescription" style="color:var(--mute); line-height:1.8; margin-top:18px;" data-i18n="event-placeholder">Les événements de SMITECH sont ici pour vous aider à suivre nos annonces, ateliers et journées thématiques.</p>
+      <img id="eventImage" src="" alt="Visuel d'événement" style="display:none; margin-top:22px; border-radius:18px; width:100%; object-fit:cover;">
+      <div class="event-actions" style="margin-top:18px;">
+        <div class="event-actions" style="margin-top:18px;">
+        <button type="button" class="btn btn-ghost" id="viewAllEvents" data-i18n="view-all">Voir tous les événements</button>
+        <a class="btn btn-primary" href="mailto:contact@smitech.fr?subject=Demande%20de%20rendez-vous%20-%20SMITECH&body=Bonjour%2C%0D%0A%0D%0AJe%20souhaite%20prendre%20rendez-vous%20avec%20l'%C3%A9quipe%20SMITECH%20pour%20discuter%20de%20%3A%0D%0A%0D%0A-%20%0D%0A%0D%0AVoici%20mes%20disponibilit%C3%A9s%20%3A%0D%0A-%20%0D%0A%0D%0AMerci%2C%0D%0A">Prendre RDV</a>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-popup" id="eventPopup" aria-hidden="true">
+    <div class="event-card glass">
+      <button class="event-close" id="popupClose" aria-label="Fermer le détail événement">×</button>
+      <h3 id="popupTitle"></h3>
+      <div class="event-meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7V3h8v4"/><path d="M5 8h14v11H5z"/></svg><strong id="popupTime"></strong></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10h-3V7a5 5 0 0 0-10 0v3H3"/><path d="M6 10v10h12V10"/></svg><span id="popupLocation"></span></span>
+      </div>
+      <img id="popupImage" src="" alt="Visuel événement" style="display:none;">
+      <p id="popupDescription"></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><img src="assets/logo.png" alt="Logo SMITECH">SMITECH</a>
+        <p>Digital, Software, AI, Cloud &amp; Cybersecurity, Labs et Cabinet Juridique — six filières, une seule ambition.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Entreprise</h5>
+        <a href="about.html">À propos</a>
+        <a href="filieres.html">Nos filières</a>
+        <a href="services.html">Nos services</a>
+        <a href="projets.html">Nos projets</a>
+        <a href="siege.html">Notre siège</a>
+        <a href="actualites.html">Actualités</a>
+      </div>
+      <div class="foot-col">
+        <h5>Rejoindre SMITECH</h5>
+        <a href="carrieres.html">Carrières</a>
+        <a href="offres.html">Offres d'emploi</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <div class="foot-contact">
+        <h5>Contact</h5>
+        <strong>contact@smitech.fr</strong>
+        <a href="mailto:contact@smitech.fr">Envoyer un email</a>
+        <a href="contact.html">Formulaire de contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-bottom-left">
+        <div class="foot-copy">© 2026 SMITECH — Tous droits réservés.</div>
+        <div class="foot-legal">
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="confidentialite.html">Politique de confidentialité</a>
+          <a href="cookies.html">Gestion des cookies</a>
+        </div>
+      </div>
+      <div class="foot-social">
+        <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+        <a href="#" aria-label="GitHub" target="_blank" rel="noopener">gh</a>
+        <a href="#" aria-label="X" target="_blank" rel="noopener">X</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button class="to-top" aria-label="Retour en haut">↑</button>
+<script src="js/main.js"></script>
+
+<!-- SmiBot — assistant virtuel -->
+<div class="chatbot-container">
+  <button class="chatbot-trigger" id="chatTrigger" aria-label="Discuter avec SmiBot">
+    <div class="smibot-launcher">
+      <div class="smibot-robot">
+        <div class="smibot-antenna"><div class="smibot-antenna-tip"></div></div>
+        <div class="smibot-head"><div class="smibot-eyes"><div class="smibot-eye left"></div><div class="smibot-eye right"></div></div></div>
+        <div class="smibot-body"><div class="smibot-screen"><div class="smibot-pulse-line"></div></div></div>
+      </div>
+      <div class="smibot-shadow"></div>
+      <span class="smibot-tooltip">SmiBot</span>
+    </div>
+  </button>
+  <div class="chatbot-window" id="chatWindow">
+    <div class="chatbot-header">
+      <div class="chatbot-profile">
+        <div class="chatbot-avatar">S</div>
+        <div><h4>SmiBot</h4><span class="chatbot-status">En ligne</span></div>
+      </div>
+      <button class="chatbot-close" id="chatClose" aria-label="Fermer SmiBot">×</button>
+    </div>
+    <div class="chatbot-search">
+      <input id="chatSearch" type="search" placeholder="Quel type de question voulez-vous poser ?" aria-label="Rechercher dans le chatbot">
+    </div>
+    <div class="chatbot-messages" id="chatMessages"></div>
+    <div class="chatbot-footer">
+      <div class="chatbot-suggestions" id="chatSuggestions"></div>
+      <div class="chatbot-options-wrapper" id="chatOptions"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
