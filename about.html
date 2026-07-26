@@ -28,7 +28,10 @@
   principal au clavier -->
 <a href="#main" class="skip-link">Aller au contenu</a>
 
-<header class="site-header">
+<!-- ================= EN-TETE DU SITE (header) =================
+     Logo + navigation principale (desktop), CTA "Postuler", bouton de
+     traduction EN et bouton menu burger (mobile) -->
+  <header class="site-header">
   <a href="index.html" class="logo"><img src="assets/logo.png" alt="Logo SMITECH">SMITECH</a>
   <nav class="main-nav" aria-label="Navigation principale">
     <ul>
@@ -43,11 +46,17 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  <a href="carrieres.html" class="nav-cta">Postuler</a>
-    <button class="translate-btn" aria-label="Traduire en anglais / Translate to English">FR</button>
-  <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+  <!-- Raccourci vers le formulaire de candidature -->
+ <a href="carrieres.html" class="nav-cta">Postuler</a>
+  <!-- Bascule le contenu du site en anglais (voir js/translate.js) -->
+  <button class="translate-btn" aria-label="Traduire en anglais / Translate to English">FR</button>
+    <!-- Ouvre/ferme la navigation mobile (.mobile-nav), voir js/main.js -->
+ <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
 </header>
 
+  <!-- ================= NAVIGATION MOBILE =================
+     Duplique les liens du header ; affichee en plein ecran quand le bouton
+     burger est active (voir js/main.js) -->
 <div class="mobile-nav">
   <a href="index.html">Accueil</a>
   <a href="about.html">À propos</a>
@@ -61,8 +70,13 @@
   <a href="carrieres.html" class="nav-cta">Postuler</a>
 </div>
 
+  <!-- ================= CONTENU PRINCIPAL =================
+     Remarque : la classe "reveal" declenche une animation d'apparition au
+     defilement (geree par js/main.js) -->
 <main id="main">
 
+  <!-- En-tete de page : titre, texte d'introduction et fond anime decoratif
+  (circuit-field) -->
 <section class="page-hero">
   <div class="circuit-field" data-density="7"></div>
   <div class="wrap">
@@ -73,7 +87,9 @@
 </section>
 
 <section class="section wrap">
-  <div class="intro-split">
+    <!-- Section "Notre histoire" : texte de presentation + liste numerotee de 3 points 
+  cles -->
+ <div class="intro-split">
     <div>
       <div class="eyebrow reveal">Notre histoire</div>
       <h2 class="title-lg reveal">Une entreprise pensée comme un écosystème</h2>
