@@ -27,13 +27,20 @@ JetBrains Mono (accents / mono) -->
 (styles propres aux pages interieures) -->
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/pages.css">
+<!-- Donnees structurees Schema.org (SEO) decrivant l'organisation SMITECH --> 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"SMITECH","url":"https://www.smitech.fr","logo":"assets/logo.png","description":"Groupe technologique organisé en six filières : Digital, Software, AI, Cloud & Cybersecurity, Labs et Cabinet Juridique."}
 </script>
 </head>
 <body>
+<!-- Lien d'evitement (accessibilite) :permet de sauter directement au contenu principal
+au clavier -->
 <a href="#main" class="skip-link">Aller au contenu</a>
-
+  
+<!-- ================= EN-TETE DU SITE (header) =================
+     Logo + navigation principale (desktop), CTA "Postuler", bouton de
+     traduction EN et bouton menu burger (mobile) -->
+  
 <header class="site-header">
   <a href="index.html" class="logo"><img src="assets/logo.png" alt="Logo SMITECH">SMITECH</a>
   <nav class="main-nav" aria-label="Navigation principale">
@@ -49,12 +56,19 @@ JetBrains Mono (accents / mono) -->
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+  <!-- Raccourci vers le formulaire de candidature -->
   <a href="carrieres.html" class="nav-cta">Postuler</a>
+  <!-- Bascule le contenu du site en anglais (voir js/translate.js) -->
   <button class="translate-btn" aria-label="Traduire en anglais / Translate to English">FR</button>
+  <!-- Ouvre/ferme la navigation mobile (.mobile-nav), voir js/main.js -->
   <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
 </header>
 
-<div class="mobile-nav">
+<!-- ================= NAVIGATION MOBILE =================
+     Duplique les liens du header ; affichee en plein ecran quand le bouton
+     burger est active (voir js/main.js) -->
+  
+ <div class="mobile-nav">
   <a href="index.html">Accueil</a>
   <a href="about.html">À propos</a>
   <a href="filieres.html">Filières</a>
@@ -67,8 +81,14 @@ JetBrains Mono (accents / mono) -->
   <a href="carrieres.html" class="nav-cta">Postuler</a>
 </div>
 
+  <!-- ================= CONTENU PRINCIPAL =================
+     Remarque : la classe "reveal" declenche une animation d'apparition au
+     defilement (geree par js/main.js) -->
 <main id="main">
 
+<!-- SECTION HERO : titre principal, texte d'intro, boutons d'action, compteurs animes 
+(data-count) et logo entoure d'anneaux animes -->  
+  
 <section class="hero">
   <div class="circuit-field" data-density="10"></div>
   <div class="glow-orb" style="width:520px;height:520px;background:var(--blue);opacity:.18;top:-120px;left:-160px;"></div>
@@ -100,7 +120,8 @@ JetBrains Mono (accents / mono) -->
     </div>
   </div>
 </section>
-
+  
+<!-- Bandeau defilant en boucle listant les six filieres -->
 <div class="marquee">
   <div class="marquee-track">
     <span>SMITECH Digital</span><span>SMITECH Software</span><span>SMITECH AI</span><span>SMITECH Cloud &amp; Cybersecurity</span><span>SMITECH Labs</span><span>Cabinet Juridique</span>
