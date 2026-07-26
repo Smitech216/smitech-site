@@ -128,7 +128,8 @@ au clavier -->
     <span>SMITECH Digital</span><span>SMITECH Software</span><span>SMITECH AI</span><span>SMITECH Cloud &amp; Cybersecurity</span><span>SMITECH Labs</span><span>Cabinet Juridique</span>
   </div>
 </div>
-
+  
+<!-- SECTION "Notre raison d'etre" : texte de presentation + 3 points cles numerotes -->
 <section class="section wrap" id="mission">
   <div class="intro-split">
     <div>
@@ -155,7 +156,9 @@ au clavier -->
     </div>
   </div>
 </section>
-
+  
+<!-- Apercu des 6 filieres : cartes cliquables renvoyant vers les ancres correspondantes
+sur filieres.html -->
 <section class="section wrap" id="stats-graph">
   <div class="eyebrow reveal">SMITECH en chiffres</div>
   <h2 class="title-lg reveal">Une croissance mesurable, une expertise vérifiable</h2>
@@ -267,7 +270,10 @@ au clavier -->
 
 </main>
 
-<!-- SmiBot — assistant virtuel -->
+<!-- ================= CHATBOT "SmiBot" =================
+     Widget flottant : bouton declencheur (chatTrigger) qui ouvre une fenetre
+     de chat (chatWindow) avec recherche, zone de messages, suggestions et
+     options de reponse rapide. Logique geree par js/main.js. -->
 <div class="chatbot-container">
   <button class="chatbot-trigger" id="chatTrigger" aria-label="Discuter avec SmiBot">
     <div class="smibot-launcher">
@@ -299,6 +305,9 @@ au clavier -->
   </div>
 </div>
 
+<!-- ================= PIED DE PAGE =================
+     Branding, liens de navigation secondaire, liens legaux, contact et
+     reseaux sociaux -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-grid">
@@ -350,8 +359,13 @@ au clavier -->
     </div>
   </div>
 </footer>
+<!-- Bouton "retour en haut" : apparait apres un certain defilement (voir js/main.js) -->
 <button class="to-top" aria-label="Retour en haut">↑</button>
+<!-- Script principal : animations "reveal", menu mobile, bouton retour en haut, compteurs
+animes et logique du chatbot SmiBot -->
 <script src="js/main.js"></script>
+<!-- Gere la traduction FR/EN du contenu marque data-i18n (activee apres consentement aux
+cookies tiers) -->
 <script src="js/translate.js"></script>
 </body>
 </html>
