@@ -1,9 +1,15 @@
 /* ============================================
    SMITECH — github.js
-   Récupère les dépôts publics GitHub et les affiche en cartes.
-   Aucune librairie, juste fetch().
+   Ce fichier récupère les dépôts publics GitHub du compte configuré
+   puis les affiche sous forme de cartes dans la page Projets.
 
-   ⚠️ À FAIRE : remplacez GITHUB_ACCOUNT par le vrai compte/organisation.
+   Le script fonctionne en deux temps :
+   - il interroge l'API GitHub pour obtenir la liste des dépôts ;
+   - il construit ensuite une carte visuelle par dépôt avec description,
+     langage et image de fond si disponible.
+
+   Si l'API ne répond pas ou si le compte est introuvable, une liste de
+   secours est affichée afin de conserver une expérience cohérente.
 ============================================ */
 
 const GITHUB_ACCOUNT = "smitech216";

@@ -1,14 +1,16 @@
 /* ============================================
    SMITECH — events.js
-   Construit le calendrier des événements (page Actualités) à partir de
-   events.json, et gère l'affichage du détail (panneau + fenêtre popup).
+   Ce fichier construit le calendrier des événements affiché sur la
+   page Actualités à partir du fichier events.json.
 
-   Le calendrier couvre une période fixe : SEPTEMBRE 2026 → SEPTEMBRE 2027.
-   Les boutons #calPrev / #calNext permettent de changer de mois à
-   l'intérieur de cette période (ils se désactivent aux deux bornes).
+   Il remplit deux zones principales :
+   1) la grille mensuelle du calendrier ;
+   2) le panneau de détail et la popup qui affichent les informations
+      d'un événement sélectionné.
 
-   Format attendu dans events.json : un tableau d'objets
-     { date: "AAAA-MM-JJ", title, description, time, location, image }
+   Le calendrier couvre une période fixe allant de septembre 2026 à
+   septembre 2027. Les boutons de navigation permettent de se déplacer
+   dans cette plage tout en empêchant de sortir des bornes définies.
 ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,7 +1,12 @@
 /* ==========================================================================
    SMITECH — base.css
-   Design system: tokens, reset, nav, footer, buttons, signature components.
-   Loaded on every page.
+   Ce fichier contient le design system partagé par toutes les pages.
+   Il définit les tokens de couleur, le reset global, la structure de
+   navigation, les boutons, le pied de page et les composants réutilisables
+   comme les cartes en verre, les animations de révélation ou le chatbot.
+
+   Les styles ici ne sont pas spécifiques à une seule page ; ils servent de
+   base visuelle à l’ensemble du site.
 ========================================================================== */
 
 :root{
@@ -42,7 +47,7 @@
   --surface-strong: rgba(255,255,255,.12);
 }
 
-/* ---------- RESET ---------- */
+/* ---------- RESET ET BASE GÉNÉRALE ---------- */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
@@ -118,7 +123,7 @@ h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; letter-spacing:-0.
 .glass:hover{border-color:var(--steel-2); transform:translateY(-3px);}
 .glass{transition:transform .35s ease, border-color .35s ease;}
 
-/* ---------- NAV ---------- */
+/* ---------- NAVIGATION PRINCIPALE ET MOBILE ---------- */
 header.site-header{
   position:fixed; top:0; left:0; right:0; z-index:200;
  display:flex; align-items:center; justify-content:space-between; gap:2px;
@@ -160,7 +165,7 @@ nav.main-nav a:hover, nav.main-nav a.active{color:var(--white); border-bottom-co
 .mobile-nav a{font-family:var(--font-display); font-size:22px; text-transform:uppercase; color:var(--white);}
 .mobile-nav .nav-cta{margin-top:10px;}
 
-/* ---------- BUTTONS ---------- */
+/* ---------- BOUTONS ET ACTIONS GÉNÉRALES ---------- */
 .btn{
   padding:.9375rem 1.875rem; border-radius:100px; font-family:var(--font-mono); font-size:.75rem;
   text-transform:uppercase; letter-spacing:.06em; transition:all .25s ease;
@@ -173,7 +178,7 @@ nav.main-nav a:hover, nav.main-nav a.active{color:var(--white); border-bottom-co
 .btn-block{width:100%; justify-content:center;}
 .btn[disabled]{opacity:.5; cursor:not-allowed; pointer-events:none;}
 
-/* ---------- FOOTER ---------- */
+/* ---------- PIED DE PAGE ET RÉSEAUX SOCIAUX ---------- */
 footer.site-footer{
   border-top:1px solid var(--steel); padding:70px 6vw 34px; position:relative;
 }
@@ -206,14 +211,14 @@ footer.site-footer{
   .foot-grid{grid-template-columns:1fr;}
 }
 
-/* ---------- REVEAL ON SCROLL ---------- */
+/* ---------- ANIMATIONS DE RÉVÉLATION AU DÉFILEMENT ---------- */
 .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
 .reveal-delay-1.in{transition-delay:.08s;}
 .reveal-delay-2.in{transition-delay:.16s;}
 .reveal-delay-3.in{transition-delay:.24s;}
 
-/* ---------- SHARED GRID / CARD PRIMITIVES ---------- */
+/* ---------- GRILLES ET COMPOSANTS RÉUTILISABLES ---------- */
 .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
 .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:26px;}
 @media (max-width:900px){ .grid-3, .grid-2{grid-template-columns:1fr;} }
@@ -229,13 +234,13 @@ footer.site-footer{
 .stat-block .num{font-family:var(--font-display); font-size:clamp(32px,4vw,50px); font-weight:700; background:var(--grad-signal); -webkit-background-clip:text; background-clip:text; color:transparent;}
 .stat-block .label{font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--mute); margin-top:6px;}
 
-/* ---------- BREADCRUMB / PAGE HEADER ---------- */
+/* ---------- EN-TÊTE DE PAGE ET FIL D’ARIANE ---------- */
 .page-hero{
   padding:170px 0 70px; position:relative; overflow:hidden; border-bottom:1px solid var(--steel);
 }
 .page-hero .wrap{position:relative; z-index:2;}
 
-/* ---------- BACK TO TOP ---------- */
+/* ---------- BOUTON DE RETOUR EN HAUT ---------- */
 .to-top{
   position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
   background:var(--panel); border:1px solid var(--steel-2); display:flex; align-items:center; justify-content:center;
@@ -246,6 +251,8 @@ footer.site-footer{
 
 /* ============================================
    GOOGLE TRANSLATE — bouton flottant personnalisé
+   Ce bloc agit sur le bouton de changement de langue et le widget
+   de traduction intégré au site.
 ============================================ */
 .translate-toggle{position:fixed; left:24px; bottom:24px; z-index:1002; display:flex; align-items:center; gap:8px; padding:12px 14px; border-radius:999px; border:1px solid var(--steel-2); background:rgba(9,12,17,.88); color:var(--white); cursor:pointer; box-shadow:0 14px 40px rgba(0,0,0,.28); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); transition:transform .25s ease, border-color .25s ease;} 
 .translate-toggle:hover{transform:translateY(-2px); border-color:var(--cyan);} 
@@ -258,6 +265,8 @@ footer.site-footer{
 
 /* ============================================
    SMIBOT — assistant virtuel flottant
+   Cette section style l'interface du chatbot flottant, son bouton
+   d'ouverture, la fenêtre de discussion et ses options de navigation.
 ============================================ */
 .chatbot-container{position:fixed; bottom:30px; left:30px; z-index:1000; font-family:var(--font-body);}
 .chatbot-trigger{background:transparent; border:none; outline:none; cursor:pointer; padding:0; margin:0; display:block; position:relative;}
@@ -334,7 +343,7 @@ footer.site-footer{
 }
 .translate-btn:hover{border-color:var(--cyan); color:var(--cyan);}
 
-/* ---------- Menu de langues ---------- */
+/* ---------- MENU DE LANGUES ET TRANSLATION ---------- */
 .lang-menu{
   position:absolute;
   top:calc(100% + 8px);
@@ -372,7 +381,7 @@ footer.site-footer{
 body{ top:0 !important; }
 .skiptranslate{ display:none !important; }
 
-/* ---------- Scrollbar personnalisée ---------- */
+/* ---------- BARRE DE DÉFILEMENT PERSONNALISÉE ---------- */
 ::-webkit-scrollbar{ width:10px; }
 ::-webkit-scrollbar-track{ background:var(--ink); }
 ::-webkit-scrollbar-thumb{ background:var(--blue); border-radius:10px; }

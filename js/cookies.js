@@ -1,9 +1,14 @@
 /* ============================================
    SMITECH — cookies.js
-   Bannière de consentement cookies : affichée à la première visite,
-   choix mémorisé 6 mois (cohérent avec le texte de cookies.html).
-   Le bouton #manage-cookies-btn (sur la page Cookies) permet de la
-   rouvrir à tout moment pour changer d'avis.
+   Ce script gère la bannière de consentement RGPD des cookies.
+   Son rôle est simple : afficher la bannière au premier passage,
+   mémoriser le choix de l'utilisateur dans le stockage local du
+   navigateur, puis masquer la bannière si un choix a déjà été fait.
+
+   Le consentement est conservé pendant 6 mois afin d'éviter de
+   refaire la même question à chaque visite. Le bouton
+   #manage-cookies-btn, présent sur la page Cookies, permet aussi
+   d'ouvrir à nouveau la bannière pour modifier le choix.
 ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {

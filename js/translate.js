@@ -1,8 +1,12 @@
 /* ============================================
    SMITECH — translate.js
-   Menu de langues avec drapeaux, propulsé par Google Translate.
-   La langue choisie est sauvegardée (localStorage) et réappliquée
-   automatiquement sur chaque page du site.
+   Ce script gère le menu de langues du site avec drapeaux et
+   l'intégration du widget Google Translate.
+
+   Son objectif est double :
+   - permettre à l'utilisateur de changer de langue facilement ;
+   - mémoriser la préférence dans le navigateur pour la réappliquer
+     automatiquement sur les prochaines visites.
 ============================================ */
 
 const SMITECH_LANGS = [

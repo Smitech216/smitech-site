@@ -1,7 +1,12 @@
 /* ============================================
    SMITECH — main.js
-   Comportement partagé à toutes les pages : navigation,
-   révélation au scroll, fond circuit animé, compteurs, SmiBot.
+   Ce fichier centralise les comportements communs à l'ensemble du site.
+   Il gère la navigation, l'apparition progressive des blocs au scroll,
+   la bannière cookies, la traduction, le chatbot SmiBot, le calendrier
+   d'événements, le carrousel 3D des services et les anneaux de progression.
+
+   Il joue donc le rôle de « couche d'interaction » du site, en ajoutant
+   les animations et interactions sans modifier le HTML de base.
 ============================================ */
 
 /* Copie de secours des événements (events.json), utilisée si le fetch

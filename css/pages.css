@@ -1,6 +1,9 @@
 /* ==========================================================================
    SMITECH — pages.css
-   Page-specific layout on top of base.css tokens/components.
+   Ce fichier contient les styles spécifiques à chaque page du site.
+   Il complète les règles globales de base.css en définissant la mise en
+   page des sections d'accueil, des filières, des services, des pages
+   d'actualité, de contact, de présentation et des composants plus visuels.
 ========================================================================== */
 
 /* ================= HERO (Accueil) ================= */
@@ -32,7 +35,7 @@
 .marquee span::after{content:"◆"; color:var(--cyan); font-size:9px;}
 @keyframes scrollLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
-/* ================= INTRO STRIP (shared) ================= */
+/* ================= INTRO STRIP (section commune) ================= */
 .intro-split{display:grid; grid-template-columns:.9fr 1.1fr; gap:70px; align-items:start;}
 @media (max-width:900px){ .intro-split{grid-template-columns:1fr;} .hero .wrap{grid-template-columns:1fr;} .hero-visual{max-width:340px; margin:0 auto;} }
 
@@ -42,7 +45,7 @@
 .num-item h4{font-size:18px; margin-bottom:8px;}
 .num-item p{color:var(--mute); font-size:14.5px;}
 
-/* ================= FILIERE / SERVICE CARDS ================= */
+/* ================= CARTES FILIÈRES ET SERVICES ================= */
 .filiere-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:50px;}
 @media (max-width:1000px){ .filiere-grid{grid-template-columns:repeat(2,1fr);} }
 @media (max-width:640px){ .filiere-grid{grid-template-columns:1fr;} }
@@ -153,7 +156,7 @@
 }
 .fd-visual svg{width:60%; height:60%; opacity:.9; stroke:var(--cyan);}
 
-/* ================= SERVICES ================= */
+/* ================= SECTION SERVICES ================= */
 .service-row{
   display:grid; grid-template-columns:.35fr 1fr .35fr; gap:30px; align-items:center;
   padding:30px 0; border-top:1px solid var(--steel);
@@ -165,7 +168,7 @@
 .service-row .sv-cta{text-align:right; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; color:var(--mute); justify-self:end;}
 @media (max-width:760px){ .service-row{grid-template-columns:1fr;} .service-row .sv-cta{text-align:left; justify-self:start;} }
 
-/* ================= SIEGE SOCIAL (floors) ================= */
+/* ================= PRÉSENTATION DU SIÈGE SOCIAL ================= */
 .floors{position:relative; margin-top:60px;}
 .floors::before{content:""; position:absolute; left:29px; top:0; bottom:0; width:1px; background:linear-gradient(var(--blue), var(--cyan));}
 .floor-row{display:grid; grid-template-columns:60px 1fr; gap:26px; padding-bottom:54px; position:relative;}
@@ -180,7 +183,7 @@
 .floor-tags{display:flex; flex-wrap:wrap; gap:10px;}
 .floor-tags span{font-family:var(--font-mono); font-size:11.5px; border:1px solid var(--steel-2); padding:6px 12px; border-radius:100px; color:var(--mute);}
 
-/* ================= CARRIERES ================= */
+/* ================= PAGE CARRIÈRES ================= */
 .cta-banner{
   padding:56px; display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap;
   position:relative; overflow:hidden;
@@ -240,7 +243,7 @@
 .honey{position:absolute; left:-9999px; opacity:0; height:0; width:0;}
 .form-disclaimer{font-size:12.5px; color:var(--mute-2); border-top:1px solid var(--steel); padding-top:18px; margin-top:6px;}
 
-/* ================= ACTUALITES ================= */
+/* ================= PAGE ACTUALITÉS ================= */
 .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:50px;}
 @media (max-width:1000px){ .news-grid{grid-template-columns:repeat(2,1fr);} }
 @media (max-width:640px){ .news-grid{grid-template-columns:1fr;} }
@@ -267,7 +270,7 @@
 .map-frame{border-radius:var(--radius-m); overflow:hidden; border:1px solid var(--steel); margin-top:30px; filter:grayscale(.4) invert(.92) contrast(.9);}
 .map-frame iframe{width:100%; height:280px; border:0; display:block;}
 
-/* ================= ABOUT / VALUES ================= */
+/* ================= À PROPOS ET VALEURS ================= */
 .value-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:50px;}
 @media (max-width:900px){ .value-grid{grid-template-columns:repeat(2,1fr);} }
 .value-card{padding:26px;}
@@ -399,14 +402,14 @@ transform:translateY(-50%);
   .hacc-title-vertical{ writing-mode:horizontal-tb; }
 }
 
-/* ================= MERCI (thank you) ================= */
+/* ================= PAGE DE REMERCIEMENT ================= */
 .merci-hero{min-height:80vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:160px 20px 80px;}
 .merci-hero .check{width:70px; height:70px; margin:0 auto 30px; border-radius:50%; border:1px solid var(--cyan); display:flex; align-items:center; justify-content:center;}
 .merci-hero .check svg{width:30px; stroke:var(--cyan);}
 .merci-hero h1{font-size:clamp(28px,4vw,44px); text-transform:uppercase; margin-bottom:16px;}
 .merci-hero p{color:var(--mute); max-width:460px; margin:0 auto 30px;}
 
-/* ================= ORGANIGRAMME — PYRAMIDE DE POUVOIR ================= */
+/* ================= ORGANIGRAMME — STRUCTURE DE L'ENTREPRISE ================= */
 .organigram{position:relative; padding:60px 0;}
 .organigram-tree{display:flex; flex-direction:column; align-items:center; gap:0; position:relative; width:100%;}
 .organigram-card{position:relative; padding:28px; border-radius:30px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); box-shadow:0 24px 80px rgba(0,0,0,.18); backdrop-filter:blur(20px); transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease; width:100%; max-width:360px;}
@@ -735,7 +738,7 @@ transform:translateY(-50%);
 .social-card h4{font-size:1rem; text-transform:none; margin-bottom:.5rem;}
 .social-card p{color:var(--mute); font-size:.8125rem; margin-bottom:1rem;}
 .social-card a{font-family:var(--font-mono); font-size:.71875rem; text-transform:uppercase; letter-spacing:.05em; color:var(--cyan);}
-/* ================= RÉSEAUX SOCIAUX ================= */
+/* ================= BLOCS RÉSEAUX SOCIAUX ================= */
 .social-section{padding:70px 0;}
 .social-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:40px;}
 .social-card{padding:28px; display:flex; flex-direction:column; align-items:flex-start; gap:18px; border-radius:24px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); transition:transform .35s ease, border-color .35s ease, background .35s ease;}
@@ -748,7 +751,7 @@ transform:translateY(-50%);
 @media (max-width:1000px){ .social-grid{grid-template-columns:repeat(2,1fr);} }
 @media (max-width:640px){ .social-grid{grid-template-columns:1fr;} }
 
-/* ================= FOOTER ================= */
+/* ================= PIED DE PAGE SPÉCIFIQUE ================= */
 .site-footer{border-top:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(9,12,17,.96), rgba(9,12,17,1));}
 .site-footer .wrap{padding:70px 6vw 40px;}
 .site-footer .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr 1.1fr;; gap:32px; padding-bottom:40px;}
@@ -774,7 +777,7 @@ transform:translateY(-50%);
   .site-footer .foot-bottom{flex-direction:column; align-items:flex-start;}
 }
 
-/* ================= COOKIES — BANNIÈRE DE CONSENTEMENT ================= */
+/* ================= BANNIÈRE DE CONSENTEMENT COOKIES ================= */
 .cookie-banner{
   position:fixed; left:20px; right:20px; bottom:-140%;
   z-index:1100;
@@ -802,7 +805,7 @@ transform:translateY(-50%);
   .cookie-banner__actions button{flex:1;}
 }
 
-/* ================= PAGES LÉGALES ================= */
+/* ================= PAGES LÉGALES ET MENTIONS ================= */
 .legal-content{max-width:820px;}
 .legal-content h2{font-size:26px; margin:44px 0 16px;}
 .legal-content h2:first-child{margin-top:0;}

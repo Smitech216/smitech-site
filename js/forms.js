@@ -1,9 +1,13 @@
 /* ============================================
    SMITECH — forms.js
-   Gère les formulaires Carrières (candidature avec pièces jointes)
-   et Contact. Envoi réel géré par FormSubmit (POST direct, sans
-   backend maison) — voir action="https://formsubmit.co/..." sur
-   les balises <form>.
+   Ce script intervient sur les formulaires de contact et de candidature.
+   Il prépare automatiquement le poste demandé via l'URL, affiche le nom
+   du fichier sélectionné pour les pièces jointes, puis valide les champs
+   avant l'envoi.
+
+   L'envoi réel est délégué à FormSubmit via l'attribut action des formulaires.
+   Le rôle de ce script est donc principalement d'améliorer l'expérience
+   utilisateur avant la soumission.
 ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
