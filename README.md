@@ -1,37 +1,87 @@
-# 🚀 Smitech — Plateforme Web & Startup Showcase
+# 🚀 SMITECH — Site vitrine et plateforme web
 
-[![Tech](https://img.shields.io/badge/Tech-HTML5%20%7C%20CSS3%20%7C%20JS-blue)](https://github.com/)
-[![Status](https://img.shields.io/badge/Status-En%20D%C3%A9veloppement-orange)]()
-[![Theme](https://img.shields.io/badge/Theme-Premium%20Dark%20%2F%20Neon-lime)]()
+[![Tech](https://img.shields.io/badge/Tech-HTML5%20%7C%20CSS3%20%7C%20JavaScript-blue)](https://github.com/)
+[![Status](https://img.shields.io/badge/Status-En%20développement-orange)]()
+[![Theme](https://img.shields.io/badge/Theme-Dark%20%2F%20Neon-lime)]()
 
-Bienvenue sur le dépôt officiel du hub web de **Smitech**. Cette plateforme vitrine moderne a été conçue pour refléter l'écosystème innovant de la startup, alliant une interface utilisateur haut de gamme (Premium Dark Theme) à une architecture technique fluide et interactive.
-
----
-
-## ⚡ Fonctionnalités Clés
-
-*   **Organigramme Interactif :** Un hub d'équipe dynamique sous forme de mind-map connectée, mettant en valeur les différents pôles d'expertise.
-*   **Design Cyber-Premium :** Palette de couleurs sombres optimisée pour le contraste, bordures néons thématiques par filière et typographies calibrées.
-*   **Composants UI "Anti-IA" :** Expérience utilisateur immersive privilégiant des intégrations organiques et interactives plutôt que des modules tiers génériques.
-*   **Responsive Architecture :** Interface entièrement fluide, s'adaptant parfaitement du desktop aux écrans mobiles.
+Bienvenue sur le dépôt du site web de **SMITECH**. Cette plateforme a été pensée comme une vitrine moderne et immersive du groupe, avec un design soigné, une navigation fluide et plusieurs expériences interactives pour présenter les filières, services, projets et valeurs de l’entreprise.
 
 ---
 
-## 🛠️ Technologies Utilisées
+## 🌐 À propos du projet
 
-Le projet s'appuie exclusivement sur des technologies natives pour garantir des performances et des temps de chargement optimaux :
+Le site met en avant l’identité de SMITECH à travers :
 
-*   **HTML5** : Structuration sémantique et accessible.
-*   **CSS3 Advanced** : Utilisation intensive des variables CSS (custom properties), flexbox, layouts complexes et animations cubiques-bézier.
-*   **JavaScript (ES6+)** : Logique d'interaction asynchrone, manipulation dynamique du DOM et gestion du routage interne.
+- une interface moderne et élégante,
+- des pages dédiées aux services, filières, actualités et contact,
+- des animations et interactions pour renforcer l’expérience utilisateur,
+- une structure simple, responsive et facile à maintenir.
 
 ---
 
-## 📂 Structure du Projet
+## ✨ Fonctionnalités principales
+
+- **Pages de présentation** : accueil, à propos, services, filières, projets, carrières, contact.
+- **Design immersif** : thème sombre, accents néon, visuels modernes et cohérents.
+- **Interactions dynamiques** : animations au scroll, carrousels, chatbot, calendrier d’événements et composants interactifs.
+- **Adaptabilité mobile** : interface pensée pour fonctionner correctement sur desktop comme sur mobile.
+- **Contenu structuré** : pages clairement organisées pour une lecture naturelle et une navigation intuitive.
+
+---
+
+## 🛠️ Technologies utilisées
+
+Le projet repose sur des technologies web simples et performantes :
+
+- **HTML5** pour la structure du contenu.
+- **CSS3** pour le design, la mise en page et les animations.
+- **JavaScript** pour les interactions dynamiques et le comportement du site.
+
+---
+
+## 📁 Structure du projet
 
 ```text
-├── index.html          # Page d'accueil et structure principale (Hub)
-├── css/
-│   └── home.css        # Styles globaux, animations néons et design de l'organigramme
-└── js/
-    └── main.js         # Gestion des interactions, des révélations au défilement et des clics
+├── index.html              # Page d'accueil
+├── about.html              # Présentation du groupe
+├── services.html           # Services proposés
+├── filieres.html           # Fiches des filières
+├── projets.html            # Présentation des projets
+├── carrieres.html          # Page carrières
+├── contact.html            # Formulaire et coordonnées
+├── css/                    # Styles du site
+│   ├── base.css            # Styles globaux et composants partagés
+│   └── pages.css           # Styles spécifiques aux pages
+├── js/                     # Scripts interactifs
+│   ├── main.js             # Comportements principaux du site
+│   ├── events.js           # Gestion du calendrier d'événements
+│   ├── forms.js            # Formulaires et validation
+│   ├── github.js           # Récupération des dépôts GitHub
+│   ├── cookies.js          # Gestion du consentement cookies
+│   └── translate.js        # Menu de langue et traduction
+└── assets/                 # Images, logos et ressources visuelles
+```
+
+---
+
+## ▶️ Comment visualiser le site localement
+
+Vous pouvez ouvrir le site directement dans votre navigateur, ou le servir localement avec un simple serveur web.
+
+Exemple avec Python :
+
+```bash
+python3 -m http.server 8000
+```
+
+Puis ouvrez :
+
+```text
+http://localhost:8000
+```
+
+---
+
+## 👤 Auteur
+
+Projet développé pour **SMITECH** avec une approche moderne, claire et orientée expérience utilisateur.
